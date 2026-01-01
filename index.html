@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Méthode du Simplexe - Résolveur en ligne</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">Simplexe Resolver</div>
+            <ul class="nav-menu">
+                <li><a href="#" data-page="accueil" class="nav-link active">Accueil</a></li>
+                <li><a href="#" data-page="guide" class="nav-link">Comment utiliser</a></li>
+                <li><a href="#" data-page="resolveur" class="nav-link">Résolveur</a></li>
+                <li><a href="#" data-page="algorithme" class="nav-link">Algorithme</a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                <span class="theme-icon"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Page Accueil -->
+        <section id="accueil" class="page active">
+            <div class="container">
+                <div class="hero">
+                    <h1>Bienvenue sur Simplexe Resolver</h1>
+                    <p class="hero-subtitle">Résolvez vos problèmes de programmation linéaire en ligne</p>
+                    <div class="hero-description">
+                        <p>Ce site vous permet de résoudre des problèmes d'optimisation linéaire en utilisant la méthode du simplexe. 
+                        Notre outil interactif vous guide à travers chaque étape de l'algorithme, vous permettant de comprendre 
+                        le processus de résolution en détail.</p>
+                        <div class="features">
+                            <div class="feature-card">
+                                <h3>📊 Interface Intuitive</h3>
+                                <p>Saisissez facilement votre fonction objectif et vos contraintes</p>
+                            </div>
+                            <div class="feature-card">
+                                <h3>🔍 Étapes Détaillées</h3>
+                                <p>Visualisez chaque itération de l'algorithme avec les pivots mis en évidence</p>
+                            </div>
+                            <div class="feature-card">
+                                <h3>📚 Pédagogique</h3>
+                                <p>Apprenez la méthode du simplexe grâce à nos explications détaillées</p>
+                            </div>
+                            <div class="feature-card">
+                                <h3>⚡ Rapide et Précis</h3>
+                                <p>Résolution instantanée avec des calculs précis jusqu'à 10 variables et 10 contraintes</p>
+                            </div>
+                        </div>
+                        <a href="#" data-page="resolveur" class="btn-primary">Commencer maintenant</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Page Comment utiliser -->
+        <section id="guide" class="page">
+            <div class="container">
+                <h1>Comment utiliser le résolveur</h1>
+                <div class="guide-content">
+                    <div class="guide-section">
+                        <h2>1. Définir votre problème</h2>
+                        <p>Commencez par déterminer :</p>
+                        <ul>
+                            <li>Le <strong>nombre de variables</strong> de décision (x₁, x₂, ...)</li>
+                            <li>Le <strong>nombre de contraintes</strong> de votre problème</li>
+                        </ul>
+                    </div>
+
+                    <div class="guide-section">
+                        <h2>2. Saisir la fonction objectif</h2>
+                        <p>Entrez les coefficients de la fonction que vous souhaitez <strong>maximiser</strong>.</p>
+                        <div class="example-box">
+                            <strong>Exemple :</strong> Pour maximiser Z = 3x₁ + 2x₂<br>
+                            Saisissez : c₁ = 3, c₂ = 2
+                        </div>
+                    </div>
+
+                    <div class="guide-section">
+                        <h2>3. Définir les contraintes</h2>
+                        <p>Pour chaque contrainte, saisissez :</p>
+                        <ul>
+                            <li>Les <strong>coefficients</strong> de chaque variable</li>
+                            <li>L'<strong>opérateur</strong> (≤ uniquement)</li>
+                            <li>La <strong>valeur</strong> du membre de droite (b)</li>
+                        </ul>
+                        <div class="example-box">
+                            <strong>Exemple :</strong> Pour la contrainte 2x₁ + x₂ ≤ 10<br>
+                            Saisissez : a₁ = 2, a₂ = 1, opérateur = ≤, b = 10
+                        </div>
+                    </div>
+
+                    <div class="guide-section">
+                        <h2>4. Résoudre</h2>
+                        <p>Cliquez sur le bouton <strong>"Résoudre"</strong> pour lancer le calcul. Le site affichera :</p>
+                        <ul>
+                            <li>Tous les tableaux du simplexe à chaque itération</li>
+                            <li>Les variables entrantes et sortantes</li>
+                            <li>Le pivot à chaque étape</li>
+                            <li>La solution optimale finale</li>
+                        </ul>
+                    </div>
+
+                    <div class="guide-section">
+                        <h2>5. Interpréter les résultats</h2>
+                        <p>La solution finale vous donnera :</p>
+                        <ul>
+                            <li>La <strong>valeur maximale</strong> de la fonction objectif</li>
+                            <li>Les <strong>valeurs optimales</strong> de chaque variable</li>
+                        </ul>
+                    </div>
+
+                    <div class="note-box">
+                        <strong>Note :</strong> Ce résolveur est actuellement limité aux problèmes de <strong>maximisation</strong> 
+                        avec des contraintes de type <strong>≤</strong>. Toutes les variables sont considérées comme non-négatives (≥ 0).
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Page Résolveur -->
+        <section id="resolveur" class="page">
+            <div class="container">
+                <h1>Résolveur Simplexe</h1>
+                
+                <div class="solver-container">
+                    <!-- Configuration initiale -->
+                    <div class="config-section">
+                        <h2>Configuration du problème</h2>
+                        <div class="input-group">
+                            <label for="numVars">Nombre de variables :</label>
+                            <input type="number" id="numVars" min="2" max="10" value="2">
+                        </div>
+                        <div class="input-group">
+                            <label for="numConstraints">Nombre de contraintes :</label>
+                            <input type="number" id="numConstraints" min="1" max="10" value="2">
+                        </div>
+                        <button id="generateForm" class="btn-secondary">Générer le formulaire</button>
+                    </div>
+
+                    <!-- Formulaire de saisie -->
+                    <div id="inputForm" class="input-form" style="display: none;">
+                        <h2>Fonction objectif (Maximisation)</h2>
+                        <p>Z = <span id="objectiveInputs"></span></p>
+
+                        <h2>Contraintes</h2>
+                        <div id="constraintsInputs"></div>
+
+                        <button id="solveBtn" class="btn-primary">Résoudre</button>
+                    </div>
+
+                    <!-- Résultats -->
+                    <div id="results" class="results-section" style="display: none;">
+                        <h2>Résultats</h2>
+                        <div id="iterationsDisplay"></div>
+                        <div id="finalSolution" class="final-solution"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Page Algorithme -->
+        <section id="algorithme" class="page">
+            <div class="container">
+                <h1>L'algorithme du Simplexe</h1>
+                <div class="algo-content">
+                    <div class="algo-section">
+                        <h2>Vue d'ensemble</h2>
+                        <p>L'algorithme du Simplexe résout des problèmes de maximisation en suivant des étapes précises. 
+                        Voici comment fonctionne notre outil, étape par étape.</p>
+                    </div>
+
+                    <div class="algo-section">
+                        <h2>Étape 1 : Créer le tableau initial</h2>
+                        <p><strong>Méthode :</strong> <code>initializeTableau()</code></p>
+                        <p>On commence par créer un grand tableau qui contient :</p>
+                        <ul>
+                            <li>Les coefficients de la fonction à maximiser (Z)</li>
+                            <li>Les coefficients de vos contraintes</li>
+                            <li>Des variables d'écart (e₁, e₂, ...) pour transformer les inégalités (≤) en égalités</li>
+                            <li>Les seconds membres (les limites)</li>
+                        </ul>
+                    </div>
+
+                    <div class="algo-section">
+                        <h2>Étape 2 : Vérifier si c'est optimal</h2>
+                        <p><strong>Méthode :</strong> <code>isOptimal()</code></p>
+                        <p>On regarde la dernière ligne du tableau (ligne Z) :</p>
+                        <ul>
+                            <li>S'il n'y a <strong>plus de nombres positifs</strong>, on a trouvé la meilleure solution ✓</li>
+                            <li>S'il reste des nombres positifs, on continue les calculs</li>
+                        </ul>
+                    </div>
+
+                    <div class="algo-section">
+                        <h2>Étape 3 : Choisir la variable entrante</h2>
+                        <p><strong>Méthode :</strong> <code>findEnteringColumn()</code></p>
+                        <p>On cherche dans la ligne Z quel nombre positif est le plus grand :</p>
+                        <div class="formula-box">
+                            Le <strong>plus grand nombre positif</strong> indique quelle variable doit entrer en base<br>
+                            
+                        </div>
+                    </div>
+
+                    <div class="algo-section">
+                        <h2>Étape 4 : Choisir la variable sortante</h2>
+                        <p><strong>Méthode :</strong> <code>findLeavingRow()</code></p>
+                        <p>On calcule un ratio pour chaque ligne pour savoir quelle variable doit sortir :</p>
+                        <div class="formula-box">
+                            <strong>Ratio =</strong> Second membre ÷ Coefficient de la colonne entrante<br><br>
+                            On choisit la ligne avec le <strong>plus petit ratio positif</strong><br>
+                            
+                        </div>
+                        <p><strong>Cas spécial :</strong> Si tous les coefficients sont négatifs ou nuls, le problème n'a pas de solution finie (non borné).</p>
+                    </div>
+
+                    <div class="algo-section">
+                        <h2>Étape 5 : Faire le pivot</h2>
+                        <p><strong>Méthode :</strong> <code>pivot()</code></p>
+                        <p>C'est l'étape où on transforme le tableau. Le nombre à l'intersection de la colonne entrante et la ligne sortante 
+                        est appelé le <strong>pivot</strong> (mis en évidence en <span style="background-color: #fff3cd; border: 2px solid #e16619; padding: 2px 5px;">jaune avec bordure ORANGE</span>).</p>
+                        
+                        <p><strong>On effectue deux opérations :</strong></p>
+                        <ul>
+                            <li><strong>1.</strong> Diviser toute la ligne du pivot par le nombre pivot</li>
+                            <li><strong>2.</strong> Modifier les autres lignes pour avoir des zéros dans la colonne entrante</li>
+                        </ul>
+                        
+                        <div class="formula-box">
+                            <strong>Exemple d'opérations affichées :</strong><br>
+                            L₁ ← L₁ / 2.5<br>
+                            L₂ ← L₂ - 1.5 × L₁<br>
+                            L_Z ← L_Z + 3 × L₁
+                        </div>
+                    </div>
+
+                    <div class="algo-section">
+                        <h2>Étape 6 : Répéter jusqu'à l'optimal</h2>
+                        <p><strong>Méthode :</strong> <code>solve()</code></p>
+                        <p>On répète les étapes 2 à 5 jusqu'à ce que :</p>
+                        <ul>
+                            <li>La solution soit optimale (plus de nombres positifs dans la ligne Z)</li>
+                            <li>OU le problème soit détecté comme non borné</li>
+                            <li>OU on atteigne 100 itérations (protection)</li>
+                        </ul>
+                        <p>Chaque itération est sauvegardée pour vous permettre de voir toute la progression.</p>
+                    </div>
+
+                    <div class="algo-section">
+                        <h2>Étape 7 : Extraire la solution</h2>
+                        <p><strong>Méthode :</strong> <code>extractSolution()</code></p>
+                        <p>Une fois l'algorithme terminé, on lit la solution dans le tableau final :</p>
+                        <div class="formula-box">
+                            • <strong>Variables de base :</strong> Leurs valeurs sont dans la dernière colonne du tableau<br>
+                            • <strong>Variables hors base :</strong> Elles valent 0<br>
+                            • <strong>Valeur de Z :</strong> Elle se trouve en bas à droite du tableau
+                        </div>
+                    </div>
+
+                    <div class="algo-section">
+                        <h2>Les méthodes auxiliaires</h2>
+                        <p>D'autres méthodes aident au bon fonctionnement :</p>
+                        <ul>
+                            <li><strong>formatNumber() :</strong> Arrondit les nombres à 4 décimales et enlève les zéros inutiles</li>
+                            <li><strong>copyTableau() :</strong> Fait une copie du tableau à chaque étape</li>
+                            <li><strong>createTableHTML() :</strong> Crée l'affichage visuel avec les couleurs</li>
+                            <li><strong>showToast() :</strong> Affiche les messages de succès ou d'erreur</li>
+                        </ul>
+                    </div>
+
+                    <div class="algo-section">
+                        <h2>Avantages de notre implémentation</h2>
+                        <ul>
+                            <li>✓ Chaque étape est sauvegardée et visible</li>
+                            <li>✓ Les opérations de pivot sont affichées en détail</li>
+                            <li>✓ Les éléments importants sont colorés</li>
+                            <li>✓ Les cas d'erreur sont détectés automatiquement</li>
+                            <li>✓ L'affichage est clair et pédagogique</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-team">
+                    <p class="team-title">Réalisé par :</p>
+                    <p class="team-members">
+                        Mohamed Elyazid ELAYADI • Iliass NEJARRA • Othman BENYAHYA • Mohammed Yassine ELHACHIMI
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
