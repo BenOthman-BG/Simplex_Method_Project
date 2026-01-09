@@ -63,6 +63,10 @@ However, this repository does not include personal details or profiles of the ot
 
 ---
 
-## 📫 Contact
+## Contributors : 
 
-For any questions or collaboration opportunities, feel free to reach me on [LinkedIn](https://www.linkedin.com/in/othmanbenyahya/).
+- [@MedYassineLhachimi] (https://github.com/MedYassineLhachimi)
+- [@BenOthman-BG] (https://github.com/BenOthman-BG)
+- [@IliasNejjara] (https://github.com/IliasNejjara)
+-  [@Yazid6606] (https://github.com/Yazid6606)
+  
