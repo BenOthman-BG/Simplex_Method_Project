@@ -44,12 +44,6 @@ The project is mainly intended for students and anyone interested in learning or
 
 5. The application will automatically compute and display the optimal solution
 
----
-
-## 👥 Team Work
-
-This project was developed in collaboration with three other team members as part of a group university assignment.
-However, this repository does not include personal details or profiles of the other contributors.
 
 ---
 
